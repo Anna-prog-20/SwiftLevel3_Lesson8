@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>525044808688-vt90mtskf8m6lih313f8aum6kp9ce6m7.apps.googleusercontent.com</string>
+	<string>882305750939-nvbkjdgpjnlbkiqg8tb80tgrvr3qsi6t.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.525044808688-vt90mtskf8m6lih313f8aum6kp9ce6m7</string>
+	<string>com.googleusercontent.apps.882305750939-nvbkjdgpjnlbkiqg8tb80tgrvr3qsi6t</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCA8F5Z06sFfAIvazywfsU-wsUZPAQT8SA</string>
+	<string>AIzaSyBwDY_wOzq_nmeedTuJ9iEEQVxBJCMtjq8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>525044808688</string>
+	<string>882305750939</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Anna-Shishmareva.VK</string>
+	<string>com.Anna-Shishmareva.VK</string>
 	<key>PROJECT_ID</key>
-	<string>vksimulator</string>
+	<string>vksimulator-21582</string>
 	<key>STORAGE_BUCKET</key>
-	<string>vksimulator.appspot.com</string>
+	<string>vksimulator-21582.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:525044808688:ios:51aaf39ea482fc93307b35</string>
+	<string>1:882305750939:ios:3bd751699767c7210db33e</string>
 </dict>
 </plist>

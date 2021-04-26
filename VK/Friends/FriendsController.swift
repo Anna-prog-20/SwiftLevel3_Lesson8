@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import Firebase
 
 class FriendsController: UITableViewController, UISearchBarDelegate {
     
@@ -28,8 +29,8 @@ class FriendsController: UITableViewController, UISearchBarDelegate {
         let userAuth = Session.inctance
         userAuth.getData()
         
-        networkManager.loadFriends { [self] in
-            notificationToken = friendsResult!.observe { [weak self] (changes: RealmCollectionChange) in
+        networkManager.loadFriends { [weak self] in
+            self?.notificationToken = self?.friendsResult!.observe { [weak self] (changes: RealmCollectionChange) in
                 guard let tableView = self?.tableFriends else {return}
                 switch changes {
                 case .initial:
@@ -89,11 +90,19 @@ class FriendsController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        idFriend = friendsResult!.filter("lastName LIKE '\((Array(arrayLiteral: symbolResult!).first![indexPath.section].symbol))*'")[indexPath.row].id
+        let friend = friendsResult!.filter("lastName LIKE '\((Array(arrayLiteral: symbolResult!).first![indexPath.section].symbol))*'")[indexPath.row]
+        idFriend = friend.id
         clearFormatSelectedCell(row: 0, section: symbolControl.selectedSymbolId)
         symbolControl.isSelectedButton(selectedSymbolId: symbolControl.selectedSymbolId, isSelected: false)
         let photoController = self.storyboard?.instantiateViewController(withIdentifier: "Photo") as! PhotoController
         photoController.setIdFriend(idFriend: idFriend)
+        
+        let ref = Database.database().reference(withPath: "friendsView")
+        let friendRef = ref.child(String(idFriend))
+        let zipcode = Int.random(in: 000001...999999)
+        let currentFriend = User(lastName: friend.lastName, firstName: friend.firstName, zipcode: zipcode)
+        friendRef.setValue(currentFriend.toAnyObject())
+        
         navigationController?.pushViewController(photoController, animated: true)
     }
     

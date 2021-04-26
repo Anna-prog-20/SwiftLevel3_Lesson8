@@ -36,7 +36,7 @@
 		95312BA3256180E800F884F0 /* Viewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312BA2256180E800F884F0 /* Viewing.swift */; };
 		95312BA8256180F900F884F0 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312BA7256180F900F884F0 /* Share.swift */; };
 		95352373256568E100332547 /* OnePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95352372256568E100332547 /* OnePhotoController.swift */; };
-		955670D92634C5CD0085ED9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 955670D82634C5CD0085ED9D /* GoogleService-Info.plist */; };
+		9556714B263690490085ED9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9556714A263690490085ED9D /* GoogleService-Info.plist */; };
 		95616AEE256611F9007801D9 /* OnePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95616AED256611F9007801D9 /* OnePhoto.swift */; };
 		95616AF425663975007801D9 /* PhotoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95616AF325663975007801D9 /* PhotoUser.swift */; };
 		9565019B255985B0008A9814 /* SymbolControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565019A255985B0008A9814 /* SymbolControl.swift */; };
@@ -120,7 +120,7 @@
 		95312BA2256180E800F884F0 /* Viewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewing.swift; sourceTree = "<group>"; };
 		95312BA7256180F900F884F0 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		95352372256568E100332547 /* OnePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePhotoController.swift; sourceTree = "<group>"; };
-		955670D82634C5CD0085ED9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9556714A263690490085ED9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95616AED256611F9007801D9 /* OnePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePhoto.swift; sourceTree = "<group>"; };
 		95616AF325663975007801D9 /* PhotoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUser.swift; sourceTree = "<group>"; };
 		9565019A255985B0008A9814 /* SymbolControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolControl.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		959B93F22542A32E00F319EF /* VK */ = {
 			isa = PBXGroup;
 			children = (
-				955670D82634C5CD0085ED9D /* GoogleService-Info.plist */,
+				9556714A263690490085ED9D /* GoogleService-Info.plist */,
 				951524FD26291B86008AEBE0 /* Extensions */,
 				95CE78D726118A7800ADA5A0 /* Main */,
 				95CE78D02611899200ADA5A0 /* UIComponents */,
@@ -495,7 +495,7 @@
 				95169D93256029430005987A /* NewsCell.xib in Resources */,
 				959B93FD2542A32F00F319EF /* Assets.xcassets in Resources */,
 				959B93FB2542A32E00F319EF /* Main.storyboard in Resources */,
-				955670D92634C5CD0085ED9D /* GoogleService-Info.plist in Resources */,
+				9556714B263690490085ED9D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,7 +850,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna-Shishmareva.VK";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Anna-Shishmareva.VK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -869,7 +869,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna-Shishmareva.VK";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Anna-Shishmareva.VK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
