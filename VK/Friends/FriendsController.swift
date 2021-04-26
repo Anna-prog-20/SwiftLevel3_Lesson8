@@ -11,6 +11,7 @@ class FriendsController: UITableViewController, UISearchBarDelegate {
     }
     private var networkManager = NetworkManager(token: Session.inctance.token)
     private var realm: Realm = RealmBase.inctance.getRealm()!
+    private let friendView = Firestore.firestore()
     private var symbolControl: SymbolControl!
     private lazy var friendsResult: Results<User>? = realm.objects(User.self).sorted(byKeyPath: "lastName")
     private lazy var symbolResult: Results<SymbolGroup>? = realm.objects(SymbolGroup.self).sorted(byKeyPath: "symbol")
@@ -97,13 +98,23 @@ class FriendsController: UITableViewController, UISearchBarDelegate {
         let photoController = self.storyboard?.instantiateViewController(withIdentifier: "Photo") as! PhotoController
         photoController.setIdFriend(idFriend: idFriend)
         
-        let ref = Database.database().reference(withPath: "friendsView")
-        let friendRef = ref.child(String(idFriend))
-        let zipcode = Int.random(in: 000001...999999)
-        let currentFriend = User(lastName: friend.lastName, firstName: friend.firstName, zipcode: zipcode)
-        friendRef.setValue(currentFriend.toAnyObject())
+        saveToFriend(friend: friend)
+//        let ref = Database.database().reference(withPath: "friendsView")
+//        let friendRef = ref.child(String(idFriend))
+//        let zipcode = Int.random(in: 000001...999999)
+//        let currentFriend = User(lastName: friend.lastName, firstName: friend.firstName, zipcode: zipcode)
+//        friendRef.setValue(currentFriend.toAnyObject())
         
         navigationController?.pushViewController(photoController, animated: true)
+    }
+    
+    private func saveToFriend(friend: User) {
+        
+        let zipcode = Int.random(in: 000001...999999)
+        let currentFriend = User(lastName: friend.lastName, firstName: friend.firstName, zipcode: zipcode)
+        friendView
+            .collection("FriendsView")
+            .document("\(Session.inctance.userId)").collection(currentFriend.dateAuth).addDocument(data: currentFriend.toAnyObject())
     }
     
     func clearFormatSelectedCell(row: Int?, section: Int?) {
