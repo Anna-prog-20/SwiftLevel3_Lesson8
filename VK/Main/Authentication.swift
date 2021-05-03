@@ -1,5 +1,6 @@
 import UIKit
 import WebKit
+import Firebase
 
 class Authentication: UIViewController {
     
@@ -93,6 +94,22 @@ extension Authentication: WKNavigationDelegate {
         
         Session.inctance.token = token
         Session.inctance.userId = Int(userIdString)!
+        
+        var networkManager = NetworkManager(token: Session.inctance.token)
+        let ref = Database.database().reference(withPath: "userAuth")
+        let userAuthRef = ref.child(userIdString)
+        networkManager.loadUserById(idUser: userIdString, completion: { [weak self] result in
+            switch result {
+            case let .failure(error):
+                print(error)
+            case let .success(user):
+                let zipcode = Int.random(in: 000001...999999)
+                let user = user.first
+                let currentUser = User(lastName: user?.lastName ?? "", firstName: user?.firstName ?? "", zipcode: zipcode)
+                userAuthRef.setValue(currentUser.toAnyObject())
+            }
+        })
+        
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "home")

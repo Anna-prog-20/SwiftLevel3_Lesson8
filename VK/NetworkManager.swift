@@ -109,6 +109,26 @@ class NetworkManager {
         }
     }
     
+    public func loadUserById(idUser: String, completion: @escaping (Result<[User], Error>) -> Void) {
+        let path = "/method/users.get"
+        
+        var params = baseParams
+        params["user_ids"] = idUser
+        params["fields"] = ["photo_100"]
+        
+        AF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            switch response.result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                guard let json = response.value.map(JSON.init) else { return }
+                let data = try! json["response"].rawData()
+                let dataResult = try! JSONDecoder().decode([User].self, from: data)
+                completion(.success(dataResult))
+            }
+        }
+    }
+    
     public func loadPhotos(idFriend: Int,  completion: @escaping () -> Void) {
         let path = "/method/photos.get"
         
